@@ -1,0 +1,11 @@
+---
+
+- name: issue cert for koji users
+  shell: "{{ ca_root_path }}/certgen.sh {{ item }}"
+  args:
+    creates: "{{ ca_root_path }}/certs/{{ item }}.crt"
+    chdir: "{{ ca_root_path }}"
+  with_items:
+    - kojihub
+    - kojiadmin
+    - kojiweb
