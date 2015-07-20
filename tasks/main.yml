@@ -1,5 +1,11 @@
 ---
+- name: Main | Configure CA
+  include: configure_ca.yml
+  tags:
+    - koji-ca
 
-- include: configure_ca.yml
-- include: configure_users.yml
+- name: Main | Configure Users
+  include: configure_users.yml
+  tags:
+    - koji-ca
 
