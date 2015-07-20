@@ -1,5 +1,11 @@
 #!/bin/bash
 # user is equal to parameter one or the first argument when you actually run the script
+
+# remember old umask
+oldumask=$(umask)
+# change to this umask
+umask 227
+
 user=$1
 
 if [ $# -ne 1 ];
@@ -8,9 +14,21 @@ if [ $# -ne 1 ];
     exit 1;
 fi
     
-openssl genrsa -out certs/${user}.key 2048
+openssl genrsa -out private/${user}.key 2048
 cat ssl.cnf | sed 's/{{ CN }}/'${user}'/'> ssl2.cnf
-openssl req -batch -config ssl2.cnf -new -nodes -out certs/${user}.csr -key certs/${user}.key
+openssl req -batch -config ssl2.cnf -new -nodes -out certs/${user}.csr -key private/${user}.key
 openssl ca -batch -config ssl2.cnf -keyfile private/{{ ca_name }}_ca_cert.key -cert {{ ca_name }}_ca_cert.crt -out certs/${user}.crt -outdir certs -infiles certs/${user}.csr
-cat certs/${user}.crt certs/${user}.key > pems/${user}.pem
+cat certs/${user}.crt private/${user}.key > pems/${user}.pem
 mv ssl2.cnf config/${user}-ssl.cnf
+
+# If user exists make him owner of his pem file
+
+getent passwd ${user}
+
+if [ $? -eq "0" ];
+  then
+    chown ${user} pems/${user}.pem
+fi
+
+# restore old umask
+umask $oldumask
