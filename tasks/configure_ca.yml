@@ -1,7 +1,10 @@
 ---
 
 - name: "Create {{ ca_root_path }}"
-  file: path="{{ ca_root_path }}/private" state=directory mode=0755
+  file: path="{{ ca_root_path }}" state=directory mode=0755
+
+- name: "Create {{ ca_root_path }}/private"
+  file: path="{{ ca_root_path }}/private" state=directory mode=0700
 
 - name: "Create {{ ca_root_path }}/certs"
   file: path="{{ ca_root_path }}/certs" state=directory mode=0755
@@ -10,7 +13,7 @@
   file: path="{{ ca_root_path }}/config" state=directory mode=0755
 
 - name: "Create {{ ca_root_path }}/pems"
-  file: path="{{ ca_root_path }}/pems" state=directory mode=0755
+  file: path="{{ ca_root_path }}/pems" state=directory mode=0705
 
 - name: "Configure CA ssl.cnf"
   template: src=ssl.cnf.j2 
