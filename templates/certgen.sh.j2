@@ -28,6 +28,8 @@ getent passwd ${user}
 if [ $? -eq "0" ];
   then
     chown ${user} pems/${user}.pem
+  else
+    chown apache pems/${user}.pem
 fi
 
 # restore old umask
