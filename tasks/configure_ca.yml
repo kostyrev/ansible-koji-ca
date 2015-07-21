@@ -15,6 +15,9 @@
 - name: "Create {{ ca_root_path }}/pems"
   file: path="{{ ca_root_path }}/pems" state=directory mode=0705
 
+- name: "Create {{ ca_root_path }}/webcerts"
+  file: path="{{ ca_root_path }}/webcerts" state=directory mode=0705
+
 - name: "Configure CA ssl.cnf"
   template: src=ssl.cnf.j2 
             dest="{{ ca_root_path }}/ssl.cnf"
@@ -52,6 +55,13 @@
 - name: "Setup certgen.sh"
   template: src=certgen.sh.j2
             dest="{{ ca_root_path }}/certgen.sh"
+            owner={{ ssl_cnf_owner }}
+            group={{ ssl_cnf_group }}
+            mode=0755
+
+- name: "Setup webcertgen.sh"
+  template: src=webcertgen.sh.j2
+            dest="{{ ca_root_path }}/webcertgen.sh"
             owner={{ ssl_cnf_owner }}
             group={{ ssl_cnf_group }}
             mode=0755
