@@ -7,3 +7,4 @@
     chdir: "{{ ca_root_path }}"
   with_items:
     - "{{ ansible_fqdn }}"
+    - kojira
