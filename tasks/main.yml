@@ -7,5 +7,5 @@
 - name: Main | Configure Users
   include: configure_users.yml
   tags:
-    - koji-ca
+    - koji-ca-users
 
