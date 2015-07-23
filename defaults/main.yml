@@ -1,5 +1,6 @@
 ---
-# defaults file for selfCA
+# defaults file for koji-ca
+ca_name: koji
 ssl_cnf_owner: root
 ssl_cnf_group: root
 ca_root_path: /etc/pki/koji
@@ -8,10 +9,6 @@ stateOrProvinceName_default: 'Moscow'
 localityName_default: 'Moscow'
 organizationName_default: 'My company'
 organizationalUnitName: 'IT'
-CN: 'koji.example.org'
-ca_name: koji
-# ca_private_key: CA.key
-# ca_cert: CA.crt
 koji_ca_emailAddress: info@example.org
 
 

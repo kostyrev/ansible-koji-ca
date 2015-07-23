@@ -6,5 +6,4 @@
     creates: "{{ ca_root_path }}/certs/{{ item }}.crt"
     chdir: "{{ ca_root_path }}"
   with_items:
-    - "{{ ansible_fqdn }}"
     - kojira
