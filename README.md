@@ -1,8 +1,9 @@
 Role Name
 =========
 
-This role installs and configures CA for the koji setup.
-This is one the the koji- roles which configures whole koji stack.
+ This role installs and configures CA for the koji setup.
+ This is one of the koji- roles which configures whole koji stack.
+
 Roles are:
 
  * koji-db (https://galaxy.ansible.com/list#/roles/4459)
@@ -18,19 +19,20 @@ Requirements
 ------------
 
 This role will work on:
-* Red Hat 6
-* CentOS 6
+
+ * Red Hat 6
+ * CentOS 6
 
 Role Variables
 --------------
 
-There are some variables in de default/main.yml which can (Or needs to) be changed/overriden:
+There are some variables in the default/main.yml which can (or needs to) be changed/overriden:
 
 * `ca_name`: This is the name of CA. Default is koji.
 
-* `ssl_cnf_owner`: This is the owner of ssl.cnf config file. Default it is root.
+* `ssl_cnf_owner`: This is the owner of ssl.cnf config file. Default is root.
 
-* `ssl_cnf_group`: This is the group of ssl.cnf config file. Default it is root.
+* `ssl_cnf_group`: This is the group of ssl.cnf config file. Default is root.
 
 * `ca_root_path`: This is the path for CA directory structure that will be created by this role. Default is /etc/pki/koji.
 
@@ -71,5 +73,6 @@ GPLv3
 Author Information
 ------------------
 
-Send your suggestions and pull requests to https://github.com/kostyrevaa/ansible-koji-ca.
-When send PR make sure your changes are backward-compatible. Test your changes to role with https://github.com/kostyrevaa/ansible-koji-infra
+ Send your suggestions and pull requests to https://github.com/kostyrevaa/ansible-koji-ca.
+ When send PR make sure your changes are backward-compatible.
+ Test your changes to role with https://github.com/kostyrevaa/ansible-koji-infra
