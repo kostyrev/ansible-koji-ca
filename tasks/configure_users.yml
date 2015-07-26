@@ -6,4 +6,4 @@
     creates: "{{ ca_root_path }}/certs/{{ item }}.crt"
     chdir: "{{ ca_root_path }}"
   with_items:
-    - kojira
+    - "{{ koji_ca_certs2issue }}"

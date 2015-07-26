@@ -11,5 +11,5 @@ organizationName_default: 'My company'
 organizationalUnitName: 'IT'
 koji_ca_emailAddress: info@example.org
 
-
-
+koji_ca_certs2issue:
+  - kojira
