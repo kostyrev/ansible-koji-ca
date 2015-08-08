@@ -8,6 +8,13 @@ umask 227
 # user is equal to parameter one or the first argument when you actually run the script
 user=$1
 
+if [ ! ${user} ];
+  then
+    echo "Provide username"
+    exit 1;
+fi
+
+echo "username is: ${user}" >> /tmp/log
 openssl pkcs12 -password pass: -export -inkey private/${user}.key -in certs/${user}.crt -CAfile {{ ca_name }}_ca_cert.crt -out webcerts/${user}_browser_cert.p12
 
 # If user exists make him owner of his p12 file
