@@ -48,8 +48,6 @@ There are some variables in the default/main.yml which can (or needs to) be chan
 
 * `koji_ca_emailAddress`: This is the emailAddress that goes into CA's certificate. Default is info@example.org.
 
-* `koji_ca_certs2issue`: This is the hash of certificates that is to be issues by this CA. Default hash consists only from kojira. It's sufficient if you want all parts of koji setup to reside only on one host.
-
 
 Dependencies
 ------------
@@ -63,7 +61,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: koji_ca
       roles:
-         - koji-ca
+         - kostyrevaa.koji-ca
 
 License
 -------
