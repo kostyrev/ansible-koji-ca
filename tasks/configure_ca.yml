@@ -58,8 +58,6 @@
             owner={{ ssl_cnf_owner }}
             group={{ ssl_cnf_group }}
             mode=0755
-  tags:
-    - certgen
 
 - name: "Setup webcertgen.sh"
   template: src=webcertgen.sh.j2

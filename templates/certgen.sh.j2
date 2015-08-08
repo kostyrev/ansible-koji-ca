@@ -16,12 +16,7 @@ fi
     
 openssl genrsa -out private/${user}.key 2048
 sed 's/{{ CN }}/'${user}'/' ssl.cnf > ssl2.cnf
-
-if [ ! $1 == $(hostname -f) ];
- then
-    sed -i 's/{{ koji_ca_emailUser }}/'${user}'/' ssl2.cnf
-fi
-
+sed -i 's/{{ koji_ca_emailUser }}/'${user}'/' ssl2.cnf
 openssl req -batch -config ssl2.cnf -new -nodes -out certs/${user}.csr -key private/${user}.key
 openssl ca -batch -config ssl2.cnf -keyfile private/{{ ca_name }}_ca_cert.key -cert {{ ca_name }}_ca_cert.crt -out certs/${user}.crt -outdir certs -infiles certs/${user}.csr
 cat certs/${user}.crt private/${user}.key > pems/${user}.pem
