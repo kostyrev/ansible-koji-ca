@@ -3,10 +3,4 @@
   include: configure_ca.yml
   tags:
     - koji-ca
-
-- name: Main | Configure Users
-  include: configure_users.yml
-  tags:
-    - koji-ca-users
-    - koji-ca
-
+    - koji-ca-only
