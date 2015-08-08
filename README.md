@@ -46,9 +46,7 @@ There are some variables in the default/main.yml which can (or needs to) be chan
 
 * `organizationalUnitName`: This is the organizationalUnitName that goes into CA's certificate. Default is IT.
 
-* `koji_ca_emailUser`: This is the user part email of address that goes into CA's certificate. Default is info.
-
-* `koji_ca_emailDomain`: This is the dpmain part of email address that goes into CA's certificate. Default is example.org.
+* `koji_ca_emailAddress`: This is the emailAddress that goes into CA's certificate. Default is info@example.org.
 
 * `koji_ca_certs2issue`: This is the hash of certificates that is to be issues by this CA. Default hash consists only from kojira. It's sufficient if you want all parts of koji setup to reside only on one host.
 
