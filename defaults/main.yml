@@ -9,4 +9,6 @@ stateOrProvinceName_default: 'Moscow'
 localityName_default: 'Moscow'
 organizationName_default: 'My company'
 organizationalUnitName: 'IT'
-koji_ca_emailAddress: info@example.org
+koji_ca_emailUser: sandbox
+koji_ca_emailDomain: kaspersky.com
+koji_ca_emailAddress: "{{ koji_ca_emailUser}}@{{ koji_ca_emailDomain }}"
